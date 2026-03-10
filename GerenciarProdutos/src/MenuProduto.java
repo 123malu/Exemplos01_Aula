@@ -57,32 +57,44 @@ public class MenuProduto {
         System.out.println("\n\n -- Remover produto -- \n");
         sc.nextLine();
 
+        boolean encontrado = false;
+
         System.out.print(" Digite o nome do produto para remove-lo da lista: ");
         String nomeR = sc.nextLine();
 
         for(Produto p :  produtos){
             if(p.getNome().equals(nomeR)){
                 produtos.remove(p);
+                encontrado = true;
             }
         }
 
-        System.out.println("\n Produto removido com sucesso!\n");
+        if(encontrado){
+            System.out.println("\n Produto removido com sucesso!\n");
+        } else {
+            System.out.println("\n Produto não encontrado...\n");
+        }
     }
-
 
 
     public void exibirInformacoes(Scanner sc){
         System.out.println("\n\n -- Informações de um produto -- \n");
         sc.nextLine();
 
-        System.out.print(" Informe o nome do produto para exibir suas infirmações: ");
+        boolean encontrado = false;
+
+        System.out.print(" Informe o nome do produto para exibir suas informações: ");
         String nomeE = sc.nextLine();
 
         for(Produto p : produtos){
             if(p.getNome().equals(nomeE)){
                 System.out.println(p.getNome() + " - R$" + p.getPreco());
+                encontrado = true;
             }
         }
-    }
 
+        if(!encontrado){
+            System.out.println("\n Produto não encontrado...\n");
+        }
+    }
 }
