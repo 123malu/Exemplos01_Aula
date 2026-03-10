@@ -63,9 +63,10 @@ public class MenuProduto {
         String nomeR = sc.nextLine();
 
         for(Produto p :  produtos){
-            if(p.getNome().equals(nomeR)){
+            if(p.getNome().equalsIgnoreCase(nomeR)){
                 produtos.remove(p);
                 encontrado = true;
+                break;
             }
         }
 
@@ -87,9 +88,10 @@ public class MenuProduto {
         String nomeE = sc.nextLine();
 
         for(Produto p : produtos){
-            if(p.getNome().equals(nomeE)){
+            if(p.getNome().equalsIgnoreCase(nomeE)){
                 System.out.println(p.getNome() + " - R$" + p.getPreco());
                 encontrado = true;
+                break;
             }
         }
 
